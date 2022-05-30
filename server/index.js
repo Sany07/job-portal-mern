@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 
-app.use("/api",require("./routers/authRoutes.js"))
+app.use("/api",require("./routers/allRoutes"))
 
 app.get('/', function (req, res) {
     res.send('Hello World')
