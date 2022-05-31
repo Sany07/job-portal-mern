@@ -1,6 +1,7 @@
 const express = require('express');
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 const dotenv = require('dotenv').config()
+const apiRouters = require('./routers');
 
 const port = process.env.PORT || 5000    
 
@@ -10,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 
-app.use("/api",require("./routers/allRoutes"))
+app.use("/api",apiRouters)
 
 app.get('/', function (req, res) {
     res.send('Hello World')
