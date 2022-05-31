@@ -6,7 +6,7 @@ const asyncHandler = require('express-async-handler')
 // @desc Register Controller
 const registerUser = asyncHandler(async(req, res)=>{
     
-    const { userName, email, password} = req.body
+    const { userName, email, password, isRecruiter} = req.body
 
     if (!userName || !email || !password) {
         throw new Error('Please add all fields', res.status(400))
@@ -20,11 +20,14 @@ const registerUser = asyncHandler(async(req, res)=>{
     if (isEmailExist) {
         throw new Error('Email already exists', res.status(400))
     }
-
+    if(isRecruiter){
+        role = 'recruiter'
+    }
     const user = await User.create({
         userName,
         email,
-        password
+        password,
+        role
     })
     
     if(user) {

@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 const dotenv = require('dotenv').config()
 
 const port = process.env.PORT || 5000    
@@ -14,5 +15,8 @@ app.use("/api",require("./routers/allRoutes"))
 app.get('/', function (req, res) {
     res.send('Hello World')
   })
+
+app.use(notFound)
+app.use(errorHandler)
 
   app.listen(port, () => console.log(`Server started on port http://localhost:${port}`))
