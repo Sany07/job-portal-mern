@@ -1,7 +1,10 @@
 const User = require('../../models/userModel')
 const asyncHandler = require('express-async-handler')
+const generateJwtToken = require('../../utilities/generateJwtToken')
 
-
+const loginUser = asyncHandler(async(req, res)=>{
+    res.send('Hello World')
+  })
 
 // @desc Register Controller
 const registerUser = asyncHandler(async(req, res)=>{
@@ -27,7 +30,6 @@ const registerUser = asyncHandler(async(req, res)=>{
         userName,
         email,
         password,
-        role
     })
     
     if(user) {
@@ -36,7 +38,7 @@ const registerUser = asyncHandler(async(req, res)=>{
         _id: user.id,
         name: user.userName,
         email: user.email,
-        token: generateJwtToken(user._id),
+        token: generateJwtToken(user._id,email),
         })
     }else {
         
@@ -47,5 +49,5 @@ const registerUser = asyncHandler(async(req, res)=>{
 
 
 module.exports ={
-    registerUser
+    registerUser, loginUser
 }
