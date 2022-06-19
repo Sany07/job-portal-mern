@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light py-4">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light py-4">
         {/* Container wrapper */}
         <div className="container">
           {/* Navbar brand */}
