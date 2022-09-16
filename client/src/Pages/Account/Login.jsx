@@ -24,7 +24,7 @@ const Login = () => {
             </div>
             <div className="col">
             {/* Simple link */}
-            <a href="#!">Forgot password?</a>
+            <a href="#">Forgot password?</a>
             </div>
             </div>
             {/* Submit button */}
